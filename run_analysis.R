@@ -11,6 +11,7 @@ setwd("C:/Users/naim/Google Drive/Education/Coursera/00, Data Science/02, Gettin
 #Download UCI data files from the web, unzip them, and specify time/date settings
 URL <- "https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip"
 destFile <- "CourseDataset.zip"
+
 if (!file.exists(destFile)){
   download.file(URL, destfile = destFile, mode='wb')
 }
@@ -19,7 +20,7 @@ if (!file.exists("./UCI HAR Dataset")){
 }
 dateDownloaded <- date()
 
-#Start reading files
+#Start reading input data files we just downloaded
 setwd("./UCI HAR Dataset")
 
 ###Reading Activity files
@@ -80,4 +81,4 @@ SecondDataSet<-SecondDataSet[order(SecondDataSet$Subject,SecondDataSet$Activity)
 
 #Save this tidy dataset to local file
 setwd("../")
-write.table(SecondDataSet, file = "tidydata.txt",row.name=FALSE)
+write.table(SecondDataSet, file = "Week4-project-tidydata.txt",row.name=FALSE)
